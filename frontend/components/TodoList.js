@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Task from './Todo';
 
-export default class TodoList extends React.Component {
-  render() {
+const TaskList = (props) => {
     return (
-      <div>
-        TodoList
+      <div className='task-list'>
+        {props.todos.map((task) => (
+          <Task toggleTask={props.toggleTask} key={task.id} task={task} />
+        ))}
       </div>
-    )
-  }
-}
+    );
+};
+
+export default TaskList;
