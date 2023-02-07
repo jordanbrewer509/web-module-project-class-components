@@ -1,7 +1,7 @@
 import React from 'react'
 import { ReactDOM } from 'react';
 
-import TaskList from './TodoList';
+import TodoList from './TodoList';
 import Form from './Form';
 
 const todos = [
@@ -30,24 +30,24 @@ export default class App extends React.Component {
     }
   }
 
-  toggleTask = taskID => {
-    console.log(taskID);
-    this.setState({ ...this.state, todos: this.state.todos.map(item => {
-      if(task.id === taskID) {
-        return {...task, done: !task.done}
+  toggleTodo = todoID => {
+    console.log(todoID);
+    this.setState({ ...this.state, todos: this.state.todos.map(todo => {
+      if(todo.id === todoID) {
+        return {...todos, done: !todos.done}
       }
-      return task;
+      return todos;
     })})
   }
 
-  addTask = (e, task) => {
+  addTodo = (e, todo) => {
     e.preventDefaults();
-    const newTask = {
-      name: task,
+    const newTodo = {
+      name: todo,
       id: Date.now(),
       done: false
     }
-    this.setState({...this.state, todos: [...this.state.todos, newTask]})
+    this.setState({...this.state, todos: [...this.state.todos, newTodo]})
   }
 
   render() {
@@ -55,9 +55,9 @@ export default class App extends React.Component {
       <div className='App'>
         <div className='header'>
         <h1>ToDo List</h1>
-        <Form addItem={this.addItem} />
+        <Form addTodo={this.addTodo} />
         </div>
-        <TaskList toggleTask={this.toggleTask} todos={this.state.todos} />
+        <TodoList toggleTodo={this.toggleTodo} todos={this.state.todos} />
       </div>
     )
   }

@@ -11,19 +11,19 @@ class Form extends React.Component {
 
   handleChanges = (e) => {
     e.preventDefault();
-    this.setState({ ...this.state, task: e.target.value })
+    this.setState({ ...this.state, todo: e.target.value })
   }
 
   submitForm = (e) => {
     e.preventDefault();
-    this.addTask(e, this.state.task);
-    this.setState({ ...this.state, task: "" });
+    this.addTodo(e, this.state.todo);
+    this.setState({ ...this.state, todo: "" });
   };
 
   render() {
     return (
       <form onSubmit={this.submitForm}>
-        <input type="text" name="task" value={this.state.task} onChange={this.handleChanges} />
+        <input type="text" name="todo" value={this.state.todo} onChange={this.handleChanges} />
         <button>Add</button>
       </form>
     )
