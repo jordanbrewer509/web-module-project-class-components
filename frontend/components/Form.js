@@ -16,7 +16,7 @@ class Form extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    this.addTodo(e, this.state.todo);
+    this.props.addTodo(e, this.state.todo);
     this.setState({ ...this.state, todo: "" });
   };
 

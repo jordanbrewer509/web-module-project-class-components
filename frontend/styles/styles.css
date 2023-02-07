@@ -84,6 +84,6 @@ ul, form {
   cursor: pointer;
 }
 
-.todo completed{
+.todo-completed{
   text-decoration: line-through;
 }

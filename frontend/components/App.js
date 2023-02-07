@@ -31,17 +31,18 @@ export default class App extends React.Component {
   }
 
   toggleTodo = todoID => {
-    console.log(todoID);
     this.setState({ ...this.state, todos: this.state.todos.map(todo => {
       if(todo.id === todoID) {
-        return {...todos, done: !todos.done}
+        return {...todo, done: !todo.done}
       }
-      return todos;
+      return todo;
     })})
   }
 
   addTodo = (e, todo) => {
-    e.preventDefaults();
+    console.log(e)
+
+    e.preventDefault();
     const newTodo = {
       name: todo,
       id: Date.now(),
